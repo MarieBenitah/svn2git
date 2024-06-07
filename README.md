@@ -1,8 +1,10 @@
 # Dockerized SVN to GitHub Migration Script
+This script is designed to migrate SVN to GitHub repositories in private.
 ## Requirements
 - Git account
 - Docker account
-This script is designed to migrate SVN to GitHub repositories in private. It uses the following tools:
+  
+It uses the following tools:
 
 - **curl** to retrieve the list of SVN repositories
 - **git** for version control and pushing to GitHub
