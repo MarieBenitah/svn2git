@@ -39,29 +39,5 @@ This script has been tested with simple SVN repositories that use the standard t
 
 Additionally, this script does not migrate SVN authorization to GitHub. You may need to manually configure GitHub repository permissions after the migration.
 
-## Dockerfile
-This script includes a Dockerfile to build a Docker image with all the necessary tools and dependencies:
-
-```
-FROM ruby:3.0-alpine3.15
-
-LABEL maintainer = "marie mariebenitah1@gmail.com"
-
-COPY svn2Github.sh /
-
-RUN apk update && apk add \
-  curl \
-  git \
-  subversion \
-  xmlstarlet \
-  git-svn \
-  libc6-compat \
-  github-cli
-
-RUN gem install svn2git3
-
-RUN chmod +x /svn2Github.sh
-
-ENTRYPOINT [ "/svn2Github.sh" ]
-```
 This Dockerfile uses the **ruby:3.0-alpine3.15** image as a base and installs the necessary tools and dependencies using **apk**. It then copies the **svn2Github.sh** script to the image, sets the script as the entrypoint, and grants execute permissions to the script.
+
