@@ -13,7 +13,7 @@ This script is designed to migrate SVN to GitHub repositories in private. It use
 
 ## How to Use
 The script uses a configuration file (config.txt) to define the necessary environment variables.
-1. Create a configuration file named `config.txt` with the following content:
+### Create a configuration file named `config.txt` with the following content:
 ```
 SVN_USERNAME=<your_svn_username>
 SVN2GIT_PASSWORD=<your_svn_password>
@@ -24,11 +24,12 @@ GH_TOKEN=<your_github_token>
 ```
 Replace `<your_svn_username>`, `<your_svn_password>`, `<your_svn_url>`, `<your_github_username>`, `<your_github_email>`, and `<your_github_token>` with your own credentials.
 
-2. Build the Docker image:
+### Docker
+1. Build the Docker image:
 ```
 docker build -t svn2github .
 ```
-3. Run the Docker container:
+2. Run the Docker container:
 ```
 docker run -d -v $(pwd)/config.txt:/config.txt svn2github
 ```
