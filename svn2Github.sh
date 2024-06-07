@@ -1,5 +1,6 @@
 #!/bin/sh
 
+#Argument pour l'execution de config.txt
 CONFIG_FILE=$1
 source $CONFIG_FILE
 
@@ -12,6 +13,7 @@ EOL
 
 #Variable qui stocke la liste des repository svn
 PROJECTS=$(curl -s -u $SVN_USERNAME:$SVN2GIT_PASSWORD $URL_SVN/ | awk -F'\>' '{print $3}' | sed 's/.\{4\}$//')
+
 CURRENT_PATH=$PWD
 
 export GH_TOKEN=$GH_TOKEN
@@ -19,12 +21,12 @@ export GH_TOKEN=$GH_TOKEN
 echo $GH_TOKEN > ghtoken.txt
 #Connection avec github cli à partir du fichier ghtoken.txt(refusé en simple variable)
 gh auth login --with-token < ghtoken.txt
-#Desctiver l'interaction de gh (ex: .gitignore, licence, template, etc)
+#Desactiver l'interaction de gh (ex: .gitignore, licence, template, etc)
 gh config set prompt disabled
-#Configurer git de manière globale
+#Configurer git de manière globale avec ses identifiants
 git config --global user.email $GH_EMAIL
 git config --global user.name $GH_USERNAME
-#Boucle pour installer toute la list sauf le ".."
+#Boucle pour installer toute la liste sauf le ".."
 for project in $PROJECTS; do
   if [ "$project" == '.' ] || [ "$project" == '<t' ] || [ "$project" == '' ]; then
     continue
@@ -98,7 +100,7 @@ else
   echo "$project Already exist!"
 fi
 
-#Efface tous les repository pull en local une fois fois qu'ils sont push sur GitHub
+#Effacer tous les repositories pull en local une fois fois qu'ils sont push sur GitHub
 cd $CURRENT_PATH
 rm -rf $project
 
