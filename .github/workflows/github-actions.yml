@@ -1,0 +1,30 @@
+name: SVN to GitHub Migration
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    
+    services:
+      docker:
+        image: docker:20.10.12-alpine3.15
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Login to Docker registry
+      run: |
+        echo "${{ secrets.DOCKER_HUB_PERSONAL_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_REGISTRY_USERNAME }}" --password-stdin
+
+    - name: Build Docker image
+      run: |
+        docker build -t svn2github:latest .
+
+    - name: Push Docker image to registry
+      run: |
+        docker push $svn2github:latest
