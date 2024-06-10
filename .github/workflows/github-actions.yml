@@ -1,0 +1,22 @@
+name: SVN to GitHub Migration
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    
+    services:
+      docker:
+        image: docker:20.10.12-alpine3.15
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: |
+        docker build -t svn2github:latest .
