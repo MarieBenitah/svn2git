@@ -27,4 +27,4 @@ jobs:
 
     - name: Push Docker image to registry
       run: |
-        docker push $svn2github:1.0
+        docker push svn2github:1.0
