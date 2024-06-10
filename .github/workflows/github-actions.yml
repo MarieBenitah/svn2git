@@ -23,7 +23,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t svn2github:latest .
+        docker build -t svn2github:1.0 .
 
     - name: Push Docker image to registry
       run: |
