@@ -2,7 +2,7 @@ FROM ruby:3.0-alpine3.15
 
 LABEL maintainer = "marie mariebenitah1@gmail.com"
 
-COPY svn2GitAllProjects.sh /
+COPY svn2Github.sh /
 
 RUN apk update && apk add \
   curl \
@@ -15,6 +15,6 @@ RUN apk update && apk add \
 
 RUN gem install svn2git3
 
-RUN chmod +x /svn2GitAllProjects.sh
+RUN chmod +x /svn2Github.sh
 
-ENTRYPOINT [ "/svn2GitAllProjects.sh" ]
+ENTRYPOINT [ "/svn2Github.sh" ]
