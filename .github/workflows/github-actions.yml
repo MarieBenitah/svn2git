@@ -1,1 +1,32 @@
+name: SVN ti GitHub Migration
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    
+    services:
+      docker:
+        image: docker:20.10.12-alpine3.15
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Login to Docker registry
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PERSONAL_ACCESS_TOKEN }}
+
+    - name: build and push docker image to registry
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: mariebenitah/svn2github:action
 
