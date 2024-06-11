@@ -1,4 +1,4 @@
-name: SVN to GitHub Migration
+name: SVN ti GitHub Migration
 
 on:
   push:
@@ -29,3 +29,4 @@ jobs:
         context: .
         push: true
         tags: mariebenitah/svn2github:action
+
