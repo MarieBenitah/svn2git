@@ -23,12 +23,13 @@ The script uses a configuration file (config.txt) to define the necessary enviro
 SVN_USERNAME=<your_svn_username>
 SVN2GIT_PASSWORD=<your_svn_password>
 URL_SVN=<your_svn_url>
-REPO_LIST=""
+REPO_LIST="" # Add the names of the projects to REPO_LIST if needed.
 GH_USERNAME=<your_github_username>
 GH_EMAIL=<your_github_email>
 GH_TOKEN=<your_github_token>
 ```
-Replace `<your_svn_username>`, `<your_svn_password>`, `<your_svn_url>`, `<your_github_username>`, `<your_github_email>`, and `<your_github_token>` with your own credentials.
+- **Replace** `<your_svn_username>`, `<your_svn_password>`, `<your_svn_url>`, `<your_github_username>`, `<your_github_email>`, and `<your_github_token>` with your own credentials.
+- **Leave** <repo_list> empty to loop through all projects in the SVN URL or specify the targeted project names.
 
 ### From Source
 1. Build the Docker image:
