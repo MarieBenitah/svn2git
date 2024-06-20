@@ -23,6 +23,7 @@ The script uses a configuration file (config.txt) to define the necessary enviro
 SVN_USERNAME=<your_svn_username>
 SVN2GIT_PASSWORD=<your_svn_password>
 URL_SVN=<your_svn_url>
+REPO_LIST=""
 GH_USERNAME=<your_github_username>
 GH_EMAIL=<your_github_email>
 GH_TOKEN=<your_github_token>
