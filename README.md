@@ -41,7 +41,14 @@ docker run -d -v $(pwd)/config.txt:/config.txt svn2github
 This command will run the container in the background and mount the config.txt file in the container.
 
 ### DockerHub
-[**DockerHub Page**](https://hub.docker.com/r/mariebenitah/svn2github)
+```
+docker pull mariebenitah/svn2github
+```
+```
+docker run -d -v $(pwd)/config.txt:/config.txt mariebenitah/svn2github /config.txt
+```
+
+[**mariebenitah/svn2github**](https://hub.docker.com/r/mariebenitah/svn2github)
 
 ## Limitations
 This script has been tested with simple SVN repositories that use the standard trunk, tags, and branches layout. It may not work correctly with more complex SVN repositories or those that use a non-standard layout.
