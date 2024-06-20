@@ -29,7 +29,7 @@ GH_EMAIL=<your_github_email>
 GH_TOKEN=<your_github_token>
 ```
 - **Replace** `<your_svn_username>`, `<your_svn_password>`, `<your_svn_url>`, `<your_github_username>`, `<your_github_email>`, and `<your_github_token>` with your own credentials.
-- **Leave** <repo_list> empty to loop through all projects in the SVN URL or specify the targeted project names.
+- **Leave** `<your_repo_list>` empty to loop through all projects in the SVN URL or specify the targeted project names.
 
 ### From Source
 1. Build the Docker image:
